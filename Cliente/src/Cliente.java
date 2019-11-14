@@ -15,9 +15,17 @@ public class Cliente {
     private Socket socket;
     private DataInputStream mensajeAlCliente;
     private DataOutputStream mensajeDelCliente;
+    public static String mensajeParaElServidor;
     private Menu menu;
 
-    public Cliente() {
+
+    public Cliente() throws IOException {
+
+        // Crear la conexion con el servidor
+        socket = new Socket(HOST, PUERTO);
+
+        // Imprime mensaje de inicio
+        System.out.println("Cliente Iniciado...");
 
     }
 
@@ -25,32 +33,29 @@ public class Cliente {
 
         try {
 
-            // Intanciar el menu de opciones
-            menu = new Menu();
+            // Primer mensaje de conexion con el Servidor
+            mensajeParaElServidor = "Cliente conectado!";
+
+            // Construir el flujo de entrada del cliente
+            mensajeAlCliente = new DataInputStream(socket.getInputStream());
+
+            // Construir el flujo de salida del cliente
+            mensajeDelCliente = new DataOutputStream(socket.getOutputStream());
+
 
             while (true) {
 
-                // Crear la conexion con el servidor
-                socket = new Socket(HOST, PUERTO);
+                // Enviar mensajes al servidor
+                mensajeDelCliente.writeUTF(mensajeParaElServidor);
 
-                // Construir el flujo de entrada del cliente
-                mensajeAlCliente = new DataInputStream(socket.getInputStream());
-
-                // Construir el flujo de salida del cliente
-                mensajeDelCliente = new DataOutputStream(socket.getOutputStream());
-
-                // Enviar al parser el dato en string recibido del servidor
+                // Recibir mensajes del servidor y enviar al parser el dato en string
                 parsearDatoServidor(mensajeAlCliente.readUTF());
-
-                // Cerrar la conexion
-                socket.close();
 
             }
 
         } catch (IOException e) {
-            //System.out.println(e.getMessage());
+            // Desconectar
             System.out.println("Desconectado de Servidor\n");
-
         } finally {
             // Imprimir mensaje de finalización de la App
             System.out.println("Gracias por utilizar");
@@ -63,7 +68,6 @@ public class Cliente {
     private void parsearDatoServidor(String datoServidor) throws IOException {
 
         menu.espacio();
-
         // Generar un array de datos en el caso que el string esté concatenado por la Expresión regular "pipe"
         String[] datos = datoServidor.split("\\|");
 
@@ -72,10 +76,13 @@ public class Cliente {
             System.out.println(datos[i]);
         }
 
+        // Intanciar el menu de opciones
+        if(menu == null) {
+            menu = new Menu();
+        }
         menu.espacio();
-
         // Muestra el menu de opciones
-        menu.mostrarMenu( mensajeDelCliente, mensajeAlCliente );
+        menu.mostrarMenu();
 
     }
 

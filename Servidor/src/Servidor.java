@@ -1,5 +1,4 @@
 import java.io.*;
-import java.net.UnknownHostException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -12,47 +11,47 @@ public class Servidor {
     private Socket socket;
     private DataOutputStream mensajeDelServidor;
     private DataInputStream mensajeAlServidor;
-    private String datoCliente;
     public String mensajeParaElCliente;
 
 
     private Carrera carrera = new Carrera();
 
-    public Servidor(){
+    public Servidor() throws IOException {
 
+        // Crear la conexion del servidor
+        serverSocket = new ServerSocket(PUERTO);
+        socket  = new Socket();
+
+        // Imprime mensaje de inicio
+        System.out.println("Servidor iniciado...");
     }
 
     public void iniciarServidor() {
 
         try{
 
-            // Crear la conexion del servidor
-            serverSocket = new ServerSocket(PUERTO);
+            // Primer mensaje de conexion con el Cliente
+            mensajeParaElCliente = "Conectado con el servidor!";
 
-            // Mensaje de bienvenida al cliente
-            mensajeParaElCliente = "Conectado con el servidor";
+            System.out.println("Esperando la conexión del cliente...");
+
+            // Queda a la espera de la conexion del cliente
+            socket = serverSocket.accept();
+
+            // Construir el flujo de entrada del servidor
+            mensajeAlServidor = new DataInputStream( socket.getInputStream() );
+
+            // Construir el flujo de salida del servidor
+            mensajeDelServidor = new DataOutputStream( socket.getOutputStream() );
 
             while(true){
 
-                System.out.println("Esperando la conexión del cliente...");
-
-                // Queda a la espera de la conexion del cliente
-                socket = serverSocket.accept();
-
-                // Construir el flujo de entrada del servidor
-                mensajeAlServidor = new DataInputStream( socket.getInputStream() );
-
-                // Construir el flujo de salida del servidor
-                mensajeDelServidor = new DataOutputStream( socket.getOutputStream() );
+                // Recibir mensajes del cliente y enviar al parser el dato en string
+                this.parsearDatoCliente( mensajeAlServidor.readUTF());
 
                 // Enviar mensajes al cliente
                 mensajeDelServidor.writeUTF( mensajeParaElCliente );
 
-                // Enviar al parser el dato en string recibido del cliente
-                this.parsearDatoCliente( mensajeAlServidor.readUTF());
-
-                // Cerrar la conexion
-                socket.close();
             }
 
         } catch (IOException | InterruptedException e) {
@@ -91,6 +90,8 @@ public class Servidor {
             case "5":
                 salirApp(datos);
                 break;
+            default:
+                System.out.println("\n"+datos[0]);
         }
     }
 
@@ -114,7 +115,6 @@ public class Servidor {
         System.out.println(mensaje);
 
         // Envia mensaje al cliente
-        //this.mensajeDelServidor.writeUTF(mensaje);
         mensajeParaElCliente = mensaje;
 
     }
@@ -153,7 +153,6 @@ public class Servidor {
         System.out.println(mensaje);
 
         // Enviar mensaje al cliente
-        //this.mensajeDelServidor.writeUTF(mensaje);
         mensajeParaElCliente = mensaje;
     }
 
@@ -174,7 +173,8 @@ public class Servidor {
 
         if(tortugas.size()>0) {
             for (int i = 0; i < tortugas.size(); i++) {
-                mensaje += "Tortuga: " + (i + 1) + " Nombre: " + tortugas.get(i).getNombre() + " y dorsal: " + tortugas.get(i).getDorsal() + "\n";
+                mensaje += "Tortuga: " + (i + 1) + " Nombre: " + tortugas.get(i).getNombre() + " y dorsal: " + tortugas.get(i).getDorsal();
+                if(i<tortugas.size()-1) mensaje += "\n";
             }
         }else{
             // Generar mensaje de que no hay tortugas creadas
@@ -185,7 +185,6 @@ public class Servidor {
         System.out.println(mensaje);
 
         // Enviar mensaje al cliente
-        //this.mensajeDelServidor.writeUTF(mensaje);
         mensajeParaElCliente = mensaje;
     }
 
@@ -206,7 +205,7 @@ public class Servidor {
         // Obtener las tortugas para mostrar quienes compiten
         ArrayList<Tortuga> tortugas = carrera.getTortugas();
 
-        if(tortugas.size()>0) {
+        if(tortugas.size()>1) {
             for (int i = 0; i < tortugas.size(); i++) {
                 mensajeInicio += "Participante " +tortugas.get(i).getNombre()+" con dorsal "+tortugas.get(i).getDorsal()+"\n";
             }
@@ -227,19 +226,24 @@ public class Servidor {
                 mensajeFin += "---------------------\n";
                 mensajeFin += "* Fin de la Carrera *\n";
                 mensajeFin += "---------------------\n";
-                mensajeFin += "\n";
-                mensajeFin += "¡¡¡ "+posiciones.get(0).toUpperCase() + " HA GANADO LA CARRERA !!!\n\n";
+                mensajeFin += "¡¡¡ "+posiciones.get(0).toUpperCase() + " HA GANADO LA CARRERA !!!";
 
+                // Bucle para imprimir en el cliente  las posiciones finales de la carrera
+                /*
                 for (int i = 0; i < posiciones.size(); i++) {
                     int puesto = (i + 1);
                     String nombre = posiciones.get(i);
-                    mensajeFin += "Puesto " + puesto + " es para " + nombre + "\n";
+                    mensajeFin += "\n Puesto " + puesto + " es para " + nombre;
                 }
-
+                */
                 carrera.finCarrera = false;
             }
             // Imprimir mensaje en el servidor - Fin de Carrera
             System.out.println(mensajeFin);
+
+        }else if(tortugas.size()==1){
+            // Mensaje de que se necesitan al menos 2 Tortugas creadas para iniciar una carrera
+            mensajeInicio += "- Se necesitan al menos 2 Tortugas creadas para iniciar una carrera! -";
         }else{
             // Mensaje de que no hay tortugas creadas para iniciar una carrera
             mensajeInicio += "- No hay Tortugas creadas para iniciar una carrera! -";
@@ -248,7 +252,6 @@ public class Servidor {
         mensaje = mensajeInicio+mensajeFin;
 
         // Enviar mensaje al cliente
-        //this.mensajeDelServidor.writeUTF(mensaje);
         mensajeParaElCliente = mensaje;
 
     }

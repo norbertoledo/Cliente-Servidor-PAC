@@ -1,13 +1,11 @@
+import java.io.IOException;
 
 public class MainCliente {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         // Instancia el cliente
         Cliente cliente = new Cliente();
-
-        // Imprime mensaje de inicio
-        System.out.println("Cliente Iniciado...");
 
         // Inicia el proceso del proceso del Cliente
         cliente.iniciarCliente();

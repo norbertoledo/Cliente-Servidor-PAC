@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6b1957b3-0791-40a4-9c24-d436bdc3ef5a" name="Default Changelist" comment="" />
+    <list default="true" id="6b1957b3-0791-40a4-9c24-d436bdc3ef5a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Cliente/Cliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Cliente/Cliente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Cliente/MainCliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Cliente/MainCliente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Cliente/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Cliente/Menu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainCliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TituloApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TituloApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Servidor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Servidor/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Servidor/out/production/Servidor/MainServidor.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Servidor/out/production/Servidor/MainServidor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Servidor/out/production/Servidor/Servidor.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Servidor/out/production/Servidor/Servidor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Servidor/src/MainServidor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Servidor/src/MainServidor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Servidor/src/Servidor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Servidor/src/Servidor.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,8 +29,13 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="1TNWxSnPAGvra0Um6MEasehaOVG" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunDashboard">
@@ -57,5 +76,18 @@
       <updated>1573301279264</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
