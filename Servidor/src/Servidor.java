@@ -164,9 +164,9 @@ public class Servidor {
         System.out.println("\n\nCliente solicita: [" + datos[0] + "] Listar la Tortugas");
 
         String mensaje = "";
-        mensaje += "-------------------\n";
-        mensaje += "* Listar Tortugas *\n";
-        mensaje += "-------------------\n";
+        mensaje += "-----------------------\n";
+        mensaje += "* Listado de Tortugas *\n";
+        mensaje += "-----------------------\n";
 
         // Obtener las tortugas para generar el listado
         ArrayList<Tortuga> tortugas = carrera.getTortugas();
@@ -220,22 +220,25 @@ public class Servidor {
             while (carrera.finCarrera) {
 
                 // Obtener las posiciones, recorrerlas y armar el string del resultado
-                ArrayList<String> posiciones = carrera.getResultados();
+                ArrayList<Tortuga> posiciones = carrera.getResultados();
+
+                String ganadoraNombre = posiciones.get(0).getNombre().toUpperCase();
+                String ganadoraDorsal = posiciones.get(0).getDorsal();
 
                 mensajeFin += "\n";
                 mensajeFin += "---------------------\n";
                 mensajeFin += "* Fin de la Carrera *\n";
                 mensajeFin += "---------------------\n";
-                mensajeFin += "¡¡¡ "+posiciones.get(0).toUpperCase() + " HA GANADO LA CARRERA !!!";
+                mensajeFin += "¡¡¡ "+ganadoraNombre+" con dorsal "+ganadoraDorsal+ " HA GANADO LA CARRERA !!!";
 
-                // Bucle para imprimir en el cliente  las posiciones finales de la carrera
-                /*
+                // Imprimir las posiciones finales en el servidor
+                System.out.println("\nPosiciones finales:");
                 for (int i = 0; i < posiciones.size(); i++) {
                     int puesto = (i + 1);
-                    String nombre = posiciones.get(i);
-                    mensajeFin += "\n Puesto " + puesto + " es para " + nombre;
+                    String nombre = posiciones.get(i).getNombre();
+                    System.out.println("Puesto " + puesto + " es para " + nombre);
                 }
-                */
+
                 carrera.finCarrera = false;
             }
             // Imprimir mensaje en el servidor - Fin de Carrera

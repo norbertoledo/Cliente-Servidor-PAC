@@ -55,12 +55,12 @@ public class Cliente {
 
         } catch (IOException e) {
             // Desconectar
-            System.out.println("Desconectado de Servidor\n");
+            System.out.println("Desconectado de Servidor\n\n");
         } finally {
             // Imprimir mensaje de finalización de la App
             System.out.println("Gracias por utilizar");
             System.out.println(TituloApp.getTitulo());
-            System.out.println("Hasta Pronto!");
+            System.out.println("Hasta Pronto!\n");
         }
     }
 

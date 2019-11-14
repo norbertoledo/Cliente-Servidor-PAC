@@ -54,8 +54,8 @@ public class Carrera {
 
 
     // Devolver las posiciones finales de la carrera
-    public ArrayList<String> getResultados(){
-        ArrayList<String> posiciones = Resultados.getPosiciones();
+    public ArrayList<Tortuga> getResultados(){
+        ArrayList<Tortuga> posiciones = Resultados.getPosiciones();
         return posiciones;
     }
 

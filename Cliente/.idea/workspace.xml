@@ -4,17 +4,13 @@
     <list default="true" id="6b1957b3-0791-40a4-9c24-d436bdc3ef5a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Cliente/Cliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Cliente/Cliente.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Cliente/MainCliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Cliente/MainCliente.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Cliente/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Cliente/Menu.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainCliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TituloApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TituloApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Servidor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Servidor/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Servidor/out/production/Servidor/MainServidor.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Servidor/out/production/Servidor/MainServidor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Servidor/out/production/Servidor/Servidor.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Servidor/out/production/Servidor/Servidor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Servidor/src/MainServidor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Servidor/src/MainServidor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Servidor/src/Carrera.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Servidor/src/Carrera.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Servidor/src/Resultados.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Servidor/src/Resultados.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Servidor/src/Servidor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Servidor/src/Servidor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Servidor/src/Tortuga.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Servidor/src/Tortuga.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

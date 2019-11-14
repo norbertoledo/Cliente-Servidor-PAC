@@ -49,7 +49,7 @@ public class Tortuga implements Runnable {
         for( int i = 0; i < meta; i += velocidad){
 
             // Imprimir cada avance de la tortuga en el servidor
-            System.out.println(this.nombre+", con dorsal número "+this.dorsal+" recorrió "+i+" metros.");
+            System.out.println(this.nombre+", con dorsal "+this.dorsal+" recorrió "+i+" metros.");
 
             // Variar la velocidad en cada pasada del bucle
             velocidad = getRand();
@@ -72,6 +72,6 @@ public class Tortuga implements Runnable {
         System.out.println(nombre + " finalizó la carrera");
 
         // Setear su nombre en el listados de posiciones
-        Resultados.setPosiciones(this.getNombre());
+        Resultados.setPosiciones(this);
     }
 }
